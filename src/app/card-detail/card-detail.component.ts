@@ -16,9 +16,11 @@ export class CardDetailComponent implements OnInit {
 
   @Input() card: Card;
   
-  constructor(private route: ActivatedRoute,
-  private heroService: CardService,
-  private location: Location) { }
+  constructor(
+    private route: ActivatedRoute,
+    private cardService: CardService,
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
     this.getCard();
@@ -26,8 +28,11 @@ export class CardDetailComponent implements OnInit {
 
 getCard(): void {
   const id = +this.route.snapshot.paramMap.get('id');
-  this.cardService.getCard(id)
-    .subscribe(card => this.card = card);
+  this.cardService.getCard(id).subscribe(card => this.card = card);
+}
+
+goBack(): void {
+  this.location.back();
 }
 
 }

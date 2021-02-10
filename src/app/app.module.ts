@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component'; // <-- NgModel lives here
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'; // <-- NgM
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
