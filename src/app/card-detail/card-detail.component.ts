@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { CardService } from '../card.service';
 
 
 
@@ -12,9 +16,18 @@ export class CardDetailComponent implements OnInit {
 
   @Input() card: Card;
   
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+  private heroService: CardService,
+  private location: Location) { }
 
   ngOnInit(): void {
+    this.getCard();
   }
+
+getCard(): void {
+  const id = +this.route.snapshot.paramMap.get('id');
+  this.cardService.getCard(id)
+    .subscribe(card => this.card = card);
+}
 
 }

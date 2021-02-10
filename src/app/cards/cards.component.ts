@@ -18,19 +18,11 @@ export class CardsComponent implements OnInit {
 
   cards: Card[];
   
-  constructor(private cardService: CardService, private messageService: MessageService) { }
+  constructor(private cardService: CardService) { }
   
 
   ngOnInit() {
     this.getCards();
-  }
-
-
-  
-  onSelect(card: Card): void {
-    this.selectedCard = card;
-    this.messageService.add(`CardsComponent: Selected card id=${card.id}`);
-    
   }
 
   getCards(): void {
