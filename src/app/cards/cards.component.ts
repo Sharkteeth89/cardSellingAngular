@@ -30,6 +30,7 @@ export class CardsComponent implements OnInit {
   onSelect(card: Card): void {
     this.selectedCard = card;
     this.messageService.add(`CardsComponent: Selected card id=${card.id}`);
+    
   }
 
   getCards(): void {
